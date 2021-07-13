@@ -131,7 +131,7 @@ function showRenderMode() {
     if (mode === "card") {
         cardBtn.classList.add("colorBrown");
         listBtn.classList.remove("colorBrown");
-        friendList.className = "friendContainer";
+        friendList.className = "friends";
         userCard.forEach((item) => {
             item.className = "friendCard";
         });
@@ -196,14 +196,14 @@ inputContent.addEventListener("keydown", (e) => {
 });
 
 // 對顯示模式區塊掛監聽器-點擊
-viewButton.addEventListener("click", (e) => {
-    if (e.target.matches(".fa-th")) {
-        mode = "card";
-    } else if (e.target.matches(".fa-bars")) {
-        mode = "list";
-    }
-    showRenderMode();
-});
+// viewButton.addEventListener("click", (e) => {
+//     if (e.target.matches(".fa-th")) {
+//         mode = "card";
+//     } else if (e.target.matches(".fa-bars")) {
+//         mode = "list";
+//     }
+//     showRenderMode();
+// });
 
 // 從API抓取資料
 axios

@@ -1,0 +1,34 @@
+//VARIABLES
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+// FONT VARIABLES
+$font-primary: "Roboto", sans-serif;
+$font-display: "Uchen", sans-serif;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  font-family: $font-primary;
+  font-weight: 300;
+  color: $color-grey-light-2;
+  line-height: 1.6;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}

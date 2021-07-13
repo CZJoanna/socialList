@@ -13,7 +13,7 @@
             crossorigin="anonymous"
         />
 
-        <link rel="stylesheet" href="socialList.css" />
+        <link rel="stylesheet" href="./css/style.css" />
 
         <title>Fav Friends List</title>
     </head>
@@ -23,7 +23,7 @@
             <!-- <a class="navbar-brand" href="#">User List</a> -->
             <ul class="navBar">
                 <li>User List</li>
-                <li><a href="socialList.html">Home</a></li>
+                <li><a href="social.html">Home</a></li>
                 <li><a href="favorite.html">Favorite<span id="favCount" class="favSpan"></span></a> </li>
             </ul>
         </nav>
@@ -31,7 +31,7 @@
         <h5 class="favText">Your&nbsp;&nbsp;favorite&nbsp;&nbsp;list</h3>
 
         <!-- body area: rendor friend List -->
-        <div id="friendList" class="friendContainer"></div>
+        <div id="friendList" class="friends"></div>
 
         <!-- paginator -->
         <nav aria-label="Page navigation">
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <script src="favorite.js"></script>
+        <script src="./js/favorite.js"></script>
         <!-- 引入CDN -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script

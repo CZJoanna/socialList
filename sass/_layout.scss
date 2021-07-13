@@ -1,0 +1,34 @@
+//CONTAINER
+.f-container {
+  display: grid;
+  grid-template-rows: 6rem;
+  grid-template-columns:
+    [full-start] 1fr [center-start] repeat(
+      8,
+      [col-start] minmax(min-content, 12rem) [col-end]
+    )
+    [center-end] 1fr [full-end];
+}
+
+//HEADER
+.header {
+  grid-column: full-start / full-end;
+
+  display: flex;
+}
+
+//FRIENDS
+.friends {
+  grid-column: center-start / center-end;
+  padding: 4.5rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-row-gap: 2.5rem;
+  justify-items: center;
+}
+
+//PAGE NAVIGATION
+.page-nav {
+  grid-column: center-start / center-end;
+}
