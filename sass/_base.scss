@@ -14,6 +14,10 @@ $color-grey-dark-2: #3c3c3c;
 $font-primary: "Roboto", sans-serif;
 $font-display: "Uchen", sans-serif;
 
+//BREAKPOINTS
+$bp-md: 50em ; //800px
+$bp-sm: 31.25em; //500px
+
 *,
 *::after,
 *::before {

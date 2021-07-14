@@ -4,25 +4,40 @@
   color: $color-primary;
   font-family: $font-display;
   font-size: 4rem;
+
+  @media only screen and(max-width:$bp-sm) {
+    font-size: 2.5rem;
+  }
 }
 
 ////////////////////////
 //USER NAVIGATION
 .user-nav {
   font-family: $font-display;
+
+  @media only screen and (max-width: $bp-md) {
+    justify-self: end;
+  }
+
+  @media only screen and(max-width:$bp-sm) {
+    justify-self: start;
+  }
+
   &__list {
     list-style: none;
     display: flex;
     margin: 0;
   }
+
   &__item {
     position: relative;
   }
+
   &__link {
+    padding: 1.5rem 3rem;
     outline: none;
     color: $color-grey-dark-2;
     font-size: 1.7rem;
-    padding: 1.5rem 2rem;
     transition: all 0.2s;
 
     &:hover {
@@ -77,22 +92,25 @@
     border-radius: 50%;
     transition: all 0.5s;
   }
+
   &__name {
     grid-column: 1/-1;
     color: $color-grey-dark-2;
     font-family: $font-display;
     font-size: 2rem;
   }
+
   &__seemore {
     grid-column: 1 / span 1;
   }
+
   &__add {
     grid-column: 2 / span 1;
 
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
 }
 
@@ -102,6 +120,7 @@
   display: block;
   border: none;
   text-transform: uppercase;
+  transition: all 0.3s;
 
   &:visited,
   &:link {
@@ -133,6 +152,7 @@
   }
 }
 
+//animation
 @keyframes pulsate {
   0% {
     transform: scale(1);
@@ -152,9 +172,14 @@
 //SEARCH
 .search {
   font-size: 1.7rem;
+
+  @media only screen and (max-width: $bp-md) {
+    grid-column: 1 / span 2;
+  }
+
   &__input {
     display: inline-block;
-    width: 30rem;
+    width: 100%;
     padding: 0.9rem 2.5rem;
     margin-right: -5rem;
     border: none;

@@ -31,9 +31,18 @@ h6 {
   color: #db8e71;
   font-family: "Uchen", sans-serif;
   font-size: 4rem; }
+  @media only screen and (max-width: 31.25em) {
+    .logo-text {
+      font-size: 2.5rem; } }
 
 .user-nav {
   font-family: "Uchen", sans-serif; }
+  @media only screen and (max-width: 50em) {
+    .user-nav {
+      justify-self: end; } }
+  @media only screen and (max-width: 31.25em) {
+    .user-nav {
+      justify-self: start; } }
   .user-nav__list {
     list-style: none;
     display: flex;
@@ -41,10 +50,10 @@ h6 {
   .user-nav__item {
     position: relative; }
   .user-nav__link {
+    padding: 1.5rem 3rem;
     outline: none;
     color: #3c3c3c;
     font-size: 1.7rem;
-    padding: 1.5rem 2rem;
     transition: all 0.2s; }
     .user-nav__link:hover {
       color: #db8e71; }
@@ -91,15 +100,16 @@ h6 {
     grid-column: 1 / span 1; }
   .friend__add {
     grid-column: 2 / span 1;
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
-    font-size: 1.5rem; }
+    font-size: 1.9rem; }
 
 .f-btn {
   display: block;
   border: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  transition: all 0.3s; }
   .f-btn:visited, .f-btn:link {
     text-decoration: none;
     outline: none; }
@@ -129,9 +139,12 @@ h6 {
 
 .search {
   font-size: 1.7rem; }
+  @media only screen and (max-width: 50em) {
+    .search {
+      grid-column: 1 / span 2; } }
   .search__input {
     display: inline-block;
-    width: 30rem;
+    width: 100%;
     padding: 0.9rem 2.5rem;
     margin-right: -5rem;
     border: none;
@@ -159,7 +172,14 @@ h6 {
   grid-template-columns: max-content 1fr max-content;
   align-items: center;
   grid-column-gap: 2rem;
-  padding: 1.5rem 3rem; }
+  padding: 3.5rem 4rem; }
+  @media only screen and (max-width: 50em) {
+    .header {
+      grid-template-columns: max-content 1fr;
+      grid-row-gap: 1.5rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .header {
+      padding: 2rem; } }
 
 .friends {
   grid-column: center-start / center-end;
@@ -168,6 +188,9 @@ h6 {
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-row-gap: 2.5rem;
   grid-column-gap: 1.5rem; }
+  @media only screen and (max-width: 31.25em) {
+    .friends {
+      padding: 2rem 0; } }
 
 .page-nav {
   grid-column: center-start / center-end; }
