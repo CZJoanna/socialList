@@ -28,7 +28,7 @@ h6 {
   padding: 0; }
 
 .logo-text {
-  color: #DB8E71;
+  color: #db8e71;
   font-family: "Uchen", sans-serif;
   font-size: 4rem; }
 
@@ -47,7 +47,7 @@ h6 {
     padding: 1.5rem 2rem;
     transition: all 0.2s; }
     .user-nav__link:hover {
-      color: #DB8E71; }
+      color: #db8e71; }
   .user-nav__count {
     position: absolute;
     top: -0.8rem;
@@ -56,7 +56,7 @@ h6 {
     width: 2rem;
     height: 2rem;
     color: white;
-    background-color: #DB8E71;
+    background-color: #db8e71;
     border-radius: 50%;
     text-align: center; }
 
@@ -100,12 +100,22 @@ h6 {
   display: block;
   border: none;
   text-transform: uppercase; }
+  .f-btn:visited, .f-btn:link {
+    text-decoration: none;
+    outline: none; }
+  .f-btn:hover, .f-btn:focus {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3rem);
+    outline: none; }
+  .f-btn:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.1rem); }
   .f-btn--orange {
     padding: 1rem 2rem;
-    background-color: #ED784A;
+    background-color: #ed784a;
     color: #f9f7f6; }
   .f-btn--grey {
-    color: #DB8E71;
+    color: #db8e71;
     background-color: #f9f7f6; }
 
 @keyframes pulsate {
@@ -137,7 +147,7 @@ h6 {
     border: none;
     border-radius: 50%;
     color: white;
-    background-color: #ED784A; }
+    background-color: #ed784a; }
 
 .f-container {
   display: grid;

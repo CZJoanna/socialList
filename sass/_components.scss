@@ -103,6 +103,24 @@
   border: none;
   text-transform: uppercase;
 
+  &:visited,
+  &:link {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 1rem 2rem rgba(black, 0.2);
+    transform: translateY(-0.3rem);
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+    transform: translateY(-0.1rem);
+  }
+
   &--orange {
     padding: 1rem 2rem;
     background-color: $color-primary-dark;
