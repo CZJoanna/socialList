@@ -48,11 +48,11 @@ function renderUserList(array) {
       ;
       data-toggle="modal"
       data-target="#user-modal"
-      class="f-btn friend__seemore show-userCard"
+      class="f-btn f-btn--orange friend__seemore show-userCard"
     >
       See more
     </button>
-    <button class="f-btn friend__add btn-add-favorite" data-id="${id}">
+    <button class="f-btn f-btn--grey friend__add btn-add-favorite " data-id="${id}">
       +
     </button>
   </div>

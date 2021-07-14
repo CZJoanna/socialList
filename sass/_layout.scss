@@ -1,3 +1,4 @@
+////////////////////////
 //CONTAINER
 .f-container {
   display: grid;
@@ -10,6 +11,8 @@
     [center-end] 1fr [full-end];
 }
 
+
+////////////////////////
 //HEADER
 .header {
   grid-column: full-start / full-end;
@@ -21,6 +24,8 @@
   padding: 1.5rem 3rem;
 }
 
+
+////////////////////////
 //FRIENDS
 .friends {
   grid-column: center-start / center-end;
@@ -29,9 +34,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-row-gap: 2.5rem;
-  justify-items: center;
+  grid-column-gap: 1.5rem;
 }
 
+
+////////////////////////
 //PAGE NAVIGATION
 .page-nav {
   grid-column: center-start / center-end;

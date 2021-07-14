@@ -34,9 +34,8 @@
             </li>
 
             <li class="user-nav__item">
-              <a href="favorite.html" class="user-nav__link"
-                >Favorite <span class="user-nav__count" id="favCount"></span
-              ></a>
+              <a href="favorite.html" class="user-nav__link">Favorite</a>
+              <span class="user-nav__count" id="favCount"></span>
             </li>
           </ul>
         </nav>
@@ -54,22 +53,9 @@
 
       <section class="friends" id="friendList"></section>
 
-      <!-- paginator -->
       <nav aria-label="Page navigation" class="page-nav">
         <ul class="pagination justify-content-center" id="paginator"></ul>
       </nav>
-    </div>
-
-    <!-- top area: search bar  -->
-    <div class="topArea">
-      <div class="viewChange" id="viewButton">
-        <span class="cardModal" data-modal="card"
-          ><i class="fa fa-th fa-2x" aria-hidden="true"></i
-        ></span>
-        <span class="listModal" data-modal="list"
-          ><i class="fa fa-bars fa-2x" aria-hidden="true"></i
-        ></span>
-      </div>
     </div>
 
     <!-- body area: Movie Modal -->
@@ -88,7 +74,7 @@
             <!-- 右上角關閉的按鈕 -->
             <button
               type="button"
-              class="close"
+              class="close f-btn f-btn--grey"
               data-dismiss="modal"
               aria-label="Close"
             >
@@ -113,7 +99,7 @@
           <!-- 跳頁:bottom-arera -->
           <div class="modal-footer">
             <!-- 關閉按鈕 -->
-            <button type="button" class="btn cardBtn" data-dismiss="modal">
+            <button type="button" class="f-btn f-btn--orange" data-dismiss="modal">
               Close
             </button>
 
