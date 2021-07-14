@@ -17,18 +17,121 @@ body {
   color: #aaa;
   line-height: 1.6; }
 
-p {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0; }
 
+.logo-text {
+  color: #DB8E71;
+  font-family: "Uchen", sans-serif;
+  font-size: 4rem; }
+
+.user-nav {
+  font-family: "Uchen", sans-serif; }
+  .user-nav__list {
+    list-style: none;
+    display: flex;
+    margin: 0; }
+  .user-nav__link {
+    outline: none;
+    color: #3c3c3c;
+    font-size: 1.7rem;
+    padding: 1.5rem 2rem;
+    transition: all 0.2s; }
+    .user-nav__link:hover {
+      color: #DB8E71; }
+
+.friend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  grid-row-gap: 1.5rem;
+  padding: 2.5rem;
+  transition: all 0.4s; }
+  .friend:hover {
+    box-shadow: 0 1rem 5rem rgba(201, 206, 153, 0.2);
+    transform: translateY(-5px); }
+  .friend:hover .friend__img {
+    transform: scale(1.05) translateY(-5px); }
+  .friend:hover .friend__seemore {
+    animation: pulsate 1s infinite; }
+  .friend__img {
+    grid-column: 1/-1;
+    display: block;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    transition: all 0.5s; }
+  .friend__name {
+    grid-column: 1/-1;
+    color: #3c3c3c;
+    font-family: "Uchen", sans-serif;
+    font-size: 2rem; }
+  .friend__seemore {
+    grid-column: 1 / span 1;
+    padding: 1rem 2rem;
+    background-color: #ED784A;
+    color: #f9f7f6; }
+  .friend__add {
+    grid-column: 2 / span 1;
+    padding: 1rem;
+    color: #DB8E71;
+    background-color: #f9f7f6;
+    border-radius: 100px; }
+
+.f-btn {
+  display: block;
+  border: none;
+  text-transform: uppercase; }
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 5px 3rem rgba(0, 0, 0, 0.1); }
+  100% {
+    transform: scale(1); } }
+
+.search {
+  font-size: 1.7rem; }
+  .search__input {
+    display: inline-block;
+    width: 30rem;
+    padding: 0.9rem 2.5rem;
+    margin-right: -5rem;
+    border: none;
+    border-radius: 100px;
+    background-color: #f9f7f6;
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    transition: all 0.2s; }
+  .search__btn {
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: #ED784A; }
+
 .f-container {
   display: grid;
-  grid-template-rows: 6rem;
   grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 12rem) [col-end]) [center-end] 1fr [full-end]; }
 
 .header {
   grid-column: full-start / full-end;
-  display: flex; }
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: center;
+  grid-column-gap: 2rem;
+  padding: 1.5rem 3rem; }
 
 .friends {
   grid-column: center-start / center-end;

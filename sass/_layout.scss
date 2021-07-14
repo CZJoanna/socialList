@@ -1,7 +1,7 @@
 //CONTAINER
 .f-container {
   display: grid;
-  grid-template-rows: 6rem;
+  // grid-template-rows: 6rem;
   grid-template-columns:
     [full-start] 1fr [center-start] repeat(
       8,
@@ -14,7 +14,11 @@
 .header {
   grid-column: full-start / full-end;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: center;
+  grid-column-gap: 2rem;
+  padding: 1.5rem 3rem;
 }
 
 //FRIENDS

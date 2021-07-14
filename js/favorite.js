@@ -28,17 +28,22 @@ function renderUserList(array) {
         const surName = data.surname;
         const image = data.avatar;
         dataCard += `
-          <div class="friendCard">
-              <img src="${image}">
-              <p>${name}&nbsp;${surName}</p>
-              <button
-              data-id="${id}";
-              data-toggle="modal"
-              data-target="#user-modal" 
-              class="cardBtn show-userCard" 
-              >VISIT !</button>
-              <button class="btn-add-favorite removeFavBtn favBtn" data-id="${id}">x</button>
-          </div>
+        <div class="friend" id="userCard">
+        <img src="${image}" class="friend__img" />
+        <h3 class="friend__name">${name}&nbsp;${surName}</h3>
+        <button
+          data-id="${id}"
+          ;
+          data-toggle="modal"
+          data-target="#user-modal"
+          class="f-btn friend__seemore show-userCard"
+        >
+          See more
+        </button>
+        <button class="f-btn friend__add btn-add-favorite" data-id="${id}">
+          -
+        </button>
+      </div>
               `;
     });
     friendList.innerHTML = dataCard;

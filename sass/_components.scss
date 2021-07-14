@@ -1,0 +1,133 @@
+.logo-text {
+  color: $color-primary;
+  font-family: $font-display;
+  font-size: 4rem;
+}
+
+//USER NAVIGATION
+.user-nav {
+  font-family: $font-display;
+  &__list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+  }
+  &__item {
+  }
+  &__link {
+    outline: none;
+    color: $color-grey-dark-2;
+    font-size: 1.7rem;
+    padding: 1.5rem 2rem;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__count {
+  }
+}
+
+//FRIEND
+.friend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  grid-row-gap: 1.5rem;
+
+  padding: 2.5rem;
+  transition: all 0.4s;
+
+  &:hover {
+    box-shadow: 0 1rem 5rem rgba($color-secondary, 0.2);
+    transform: translateY(-5px);
+  }
+
+  &:hover &__img {
+    transform: scale(1.05) translateY(-5px);
+  }
+
+  &:hover &__seemore {
+    animation: pulsate 1s infinite;
+  }
+
+  &__img {
+    grid-column: 1/-1;
+    display: block;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
+  &__name {
+    grid-column: 1/-1;
+    color: $color-grey-dark-2;
+    font-family: $font-display;
+    font-size: 2rem;
+  }
+  &__seemore {
+    grid-column: 1 / span 1;
+    padding: 1rem 2rem;
+    background-color: $color-primary-dark;
+    color: $color-grey-light-1;
+  }
+  &__add {
+    grid-column: 2 / span 1;
+    padding: 1rem;
+    color: $color-primary;
+    background-color: $color-grey-light-1;
+    border-radius: 100px;
+  }
+}
+
+//BTN
+.f-btn {
+  display: block;
+  border: none;
+  text-transform: uppercase;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 5px 3rem rgba(black, 0.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+//SEARCH
+
+.search {
+  font-size: 1.7rem;
+  &__input {
+    display: inline-block;
+    width: 30rem;
+    padding: 0.9rem 2.5rem;
+    margin-right: -5rem;
+    border: none;
+    border-radius: 100px;
+    background-color: $color-grey-light-1;
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    transition: all 0.2s;
+  }
+
+  &__btn {
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: $color-primary-dark;
+  }
+}
