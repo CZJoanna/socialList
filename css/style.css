@@ -33,16 +33,13 @@ h6 {
   font-size: 4rem; }
   @media only screen and (max-width: 31.25em) {
     .logo-text {
-      font-size: 2.5rem; } }
+      font-size: 3.5rem; } }
 
 .user-nav {
   font-family: "Uchen", sans-serif; }
   @media only screen and (max-width: 50em) {
     .user-nav {
       justify-self: end; } }
-  @media only screen and (max-width: 31.25em) {
-    .user-nav {
-      justify-self: start; } }
   .user-nav__list {
     list-style: none;
     display: flex;
@@ -50,6 +47,7 @@ h6 {
   .user-nav__item {
     position: relative; }
   .user-nav__link {
+    display: inline-block;
     padding: 1.5rem 3rem;
     outline: none;
     color: #3c3c3c;
@@ -59,13 +57,13 @@ h6 {
       color: #db8e71; }
   .user-nav__count {
     position: absolute;
-    top: -0.8rem;
-    right: 0.5rem;
+    top: 0;
+    right: 1.5rem;
     display: block;
     width: 2rem;
     height: 2rem;
     color: white;
-    background-color: #db8e71;
+    background-color: #ed784a;
     border-radius: 50%;
     text-align: center; }
 
@@ -78,7 +76,7 @@ h6 {
   padding: 2.5rem;
   transition: all 0.4s; }
   .friend:hover {
-    box-shadow: 0 1rem 5rem rgba(201, 206, 153, 0.2);
+    box-shadow: 0 1rem 5rem rgba(170, 170, 170, 0.2);
     transform: translateY(-5px); }
   .friend:hover .friend__img {
     transform: scale(1.05) translateY(-5px); }
@@ -138,22 +136,30 @@ h6 {
     transform: scale(1); } }
 
 .search {
+  transform: translateX(-0.5rem);
+  text-align: center;
   font-size: 1.7rem; }
   @media only screen and (max-width: 50em) {
     .search {
       grid-column: 1 / span 2; } }
   .search__input {
     display: inline-block;
-    width: 100%;
+    width: 90%;
     padding: 0.9rem 2.5rem;
     margin-right: -5rem;
     border: none;
     border-radius: 100px;
     background-color: #f9f7f6;
-    color: inherit;
     font-family: inherit;
     font-style: inherit;
     transition: all 0.2s; }
+    .search__input:focus {
+      width: 100%;
+      outline: none;
+      background-color: #db8e71;
+      color: white; }
+  .search__input:focus::placeholder {
+    color: white; }
   .search__btn {
     width: 3rem;
     height: 3rem;
@@ -164,7 +170,7 @@ h6 {
 
 .f-container {
   display: grid;
-  grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 12rem) [col-end]) [center-end] 1fr [full-end]; }
+  grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 12rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; }
 
 .header {
   grid-column: full-start / full-end;
@@ -176,7 +182,7 @@ h6 {
   @media only screen and (max-width: 50em) {
     .header {
       grid-template-columns: max-content 1fr;
-      grid-row-gap: 1.5rem; } }
+      grid-row-gap: 2rem; } }
   @media only screen and (max-width: 31.25em) {
     .header {
       padding: 2rem; } }
