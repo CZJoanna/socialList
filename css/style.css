@@ -107,12 +107,8 @@ li {
     @media only screen and (max-width: 31.25em) {
       .friend__seemore {
         padding: 0.5rem 1rem; } }
-  .friend__add {
-    grid-column: 2 / span 1;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    font-size: 1.9rem; }
+  .friend__add, .friend__delete {
+    grid-column: 2 / span 1; }
 
 .f-btn {
   display: block;
@@ -134,6 +130,10 @@ li {
     background-color: #ed784a;
     color: #f9f7f6; }
   .f-btn--grey {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    font-size: 1.9rem;
     color: #db8e71;
     background-color: #f9f7f6; }
 
@@ -251,3 +251,9 @@ li {
 
 .page-nav {
   grid-column: center-start / center-end; }
+
+.show {
+  visibility: visible; }
+
+.hide {
+  display: none; }

@@ -5,10 +5,9 @@ const favCount = document.querySelector("#favCount");
 const getValBtn = document.querySelector("#getValBtn");
 const users_per_page = 12;
 // fav list array
-const favUserArray = JSON.parse(localStorage.getItem("favoriteUsers"));
-const total_pages = Math.ceil(favUserArray.length / users_per_page);
+let favUserArray = JSON.parse(localStorage.getItem("favoriteUsers"));
+let total_pages = Math.ceil(favUserArray.length / users_per_page);
 let searchArray = [];
-
 // 渲染畫面
 renderUserList(getUserByPage(1));
 
@@ -39,7 +38,6 @@ function getInputValue() {
       "Sorry,we don't find any people matching this search.";
     myPaginator(0);
   }
-
 }
 
 //函式:回傳特定筆數的資料(陣列結構)-->用於放入
@@ -51,6 +49,7 @@ function getUserByPage(page) {
 
 //函式:
 function myPaginator(totalPages) {
+  console.log(totalPages)
   let page = "";
   for (let i = 1; i <= totalPages; i++) {
     page += `<li class="page-nav__item">
@@ -79,7 +78,7 @@ function renderUserList(array) {
       >
          See more
        </button>
-       <button class="f-btn f-btn--grey friend__add add-to-favorite " data-id="${id}">
+       <button class="f-btn f-btn--grey friend__add add-to-delete " data-id="${id}">
          -
        </button>
      </div>
@@ -94,18 +93,19 @@ function deleteFromFav(favId) {
   const selectedUser = favUserArray.find((item) => {
     return item.id == favId;
   });
-  // console.log(selectedUser);
 
   // 找出要刪除的物件在陣列的第幾個索引
   let userIndex = favUserArray.indexOf(selectedUser);
   if (userIndex == -1) return;
-  // console.log(userIndex);
   favUserArray.splice(userIndex, 1);
   //存回 local storage
   localStorage.setItem("favoriteUsers", JSON.stringify(favUserArray));
+  
   favCount.innerHTML = favUserArray.length;
+  after_del_pages = Math.ceil(favUserArray.length / users_per_page);
   // 重新渲染頁面
-  renderUserList(favUserArray);
+  renderUserList(getUserByPage(1));
+  myPaginator(after_del_pages);
 }
 
 /*****
@@ -130,7 +130,7 @@ friendList.addEventListener("click", (e) => {
                     <img class='user-info__img' src="${userInfo.avatar}" alt="圖片">
                     `;
     userEmail.innerText = userInfo.email;
-  } else if (e.target.matches(".add-to-favorite")) {
+  } else if (e.target.matches(".add-to-delete")) {
     const favId = parseInt(e.target.dataset.id);
     deleteFromFav(favId);
   }

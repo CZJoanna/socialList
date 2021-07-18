@@ -15,10 +15,9 @@ const favCount = document.querySelector("#favCount");
 
 // Data and Variables
 // 如果favoriteUsers裡面是空的，則值會回傳null，null==false
-const myFriendList = JSON.parse(localStorage.getItem("favoriteUsers")) || [];
+let myFriendList = JSON.parse(localStorage.getItem("favoriteUsers")) || [];
 const dataArray = [];
 let filterArray = [];
-
 
 /* functions
  *****************************************/
@@ -30,12 +29,12 @@ function getUserByPage(page) {
   return data.slice(startIndex, startIndex + users_per_page);
 }
 
-// 函式:製作friend card template 
+// 函式:製作friend card template
 function renderUserList(array) {
   let dataCard = "";
   array.forEach((data) => {
-    const { id , name , surname , avatar } = data;
-  
+    const { id, name, surname, avatar } = data;
+
     dataCard += `
     <div class="friend" id="userCard">
      <img src="${avatar}" class="friend__img" />
@@ -49,16 +48,14 @@ function renderUserList(array) {
     >
        See more
      </button>
-     <button class="f-btn f-btn--grey friend__add add-to-favorite " data-id="${id}">
-       +
+     <button class="f-btn f-btn--grey friend__add add-to-favorite ${myFriendList.some(fav=> fav.id == id) ? 'favorite': ''}" data-id="${id}">
+     ${myFriendList.some(fav=> fav.id == id) ? '-': '+'}
      </button>
    </div>
      `;
   });
   friendList.innerHTML = dataCard;
-
 }
-
 
 // 函式:分頁器渲染
 function myPaginator(totalPages) {
@@ -73,7 +70,6 @@ function myPaginator(totalPages) {
   paginator.innerHTML = page;
 }
 
-
 // 函式: 抓取input值
 function getInputValue() {
   let inputVal = inputContent.value;
@@ -81,30 +77,30 @@ function getInputValue() {
     searchArray = [];
     renderUserList(getUserByPage(1));
   }
-  
-    // 篩選符合條件的物件放入陣列->filterArray
-    //string.includes()方法
-    // 把要比對的字串全部變小寫 toLowerCase()
-    //函式:回傳特定筆數的資料(陣列結構)
 
-    // 每次的搜尋，都會重新產生一個新的filterArray，但dataArray的內容不變
-    filterArray = dataArray.filter((user) => {
-      return (user.surname + " " + user.name)
-        .toLowerCase()
-        .includes(inputVal.trim().toLowerCase());
-    });
+  // 篩選符合條件的物件放入陣列->filterArray
+  //string.includes()方法
+  // 把要比對的字串全部變小寫 toLowerCase()
+  //函式:回傳特定筆數的資料(陣列結構)
 
-    // 判斷篩選過陣列是否含有資料:有->渲染;沒有->提醒使用者
-    if (filterArray.length) {
-      const total_filter_pages = Math.ceil(filterArray.length / users_per_page);
-      renderUserList(getUserByPage(1));
-      myPaginator(total_filter_pages);
-    } else {
-      friendList.innerText =
-        "Sorry,we don't find any people matching this search.";
-      myPaginator(0);
-    }
+  // 每次的搜尋，都會重新產生一個新的filterArray，但dataArray的內容不變
+  filterArray = dataArray.filter((user) => {
+    return (user.surname + " " + user.name)
+      .toLowerCase()
+      .includes(inputVal.trim().toLowerCase());
+  });
+
+  // 判斷篩選過陣列是否含有資料:有->渲染;沒有->提醒使用者
+  if (filterArray.length) {
+    const total_filter_pages = Math.ceil(filterArray.length / users_per_page);
+    renderUserList(getUserByPage(1));
+    myPaginator(total_filter_pages);
+  } else {
+    friendList.innerText =
+      "Sorry,we don't find any people matching this search.";
+    myPaginator(0);
   }
+}
 
 // 加入最愛
 // 0.設一個全域變數空陣列:myFriendList，拿來存放被新增的摯友資料
@@ -151,18 +147,32 @@ friendList.addEventListener("click", (e) => {
     const userBirth = document.querySelector("#show-modal-birth");
     const userEmail = document.querySelector("#show-modal-email");
     const userImage = document.querySelector("#show-modal-pic");
-   
+
     const userInfo = dataArray.find((item) => item.id === selectedId); //特定資料物件
     userName.innerText = "Name: " + userInfo.name + " " + userInfo.surname;
-    userAge.innerText =  "Birth: " + userInfo.age + " years old";
+    userAge.innerText = "Birth: " + userInfo.age + " years old";
     userBirth.innerText = "Age: " + userInfo.birthday;
     userImage.innerHTML = `
                   <img class='user-info__img' src="${userInfo.avatar}" alt="圖片">
                   `;
     userEmail.innerText = userInfo.email;
+  } else if (e.target.matches(".favorite")) {
+    const { id } = e.target.dataset;
+    const delUser = myFriendList.find((user) => {
+      return id == user.id;
+    });
+
+    e.target.classList.toggle("favorite");
+    e.target.innerText = "+";
+    delIndex = myFriendList.indexOf(delUser);
+    myFriendList.splice(delIndex, 1);
+    localStorage.setItem("favoriteUsers", JSON.stringify(myFriendList));
+    favCount.innerHTML = myFriendList.length; // 重新渲染收藏好友的個數
   } else if (e.target.matches(".add-to-favorite")) {
     const favId = parseInt(e.target.dataset.id);
     addToFavorite(favId);
+    e.target.classList.toggle("favorite");
+    e.target.innerText = "-";
   }
 });
 
@@ -182,7 +192,7 @@ inputContent.addEventListener("keydown", (e) => {
 axios
   .get(base_url + friends_url)
   .then((response) => {
-    console.log(response.data.results) // target array
+    console.log(response.data.results); // target array
     dataArray.push(...response.data.results); //ES新語法 展開運算子 （把陣列的[]拿掉的意思）
     const total_pages = Math.ceil(dataArray.length / users_per_page); //資料總筆數/每頁呈現筆數
     renderUserList(getUserByPage(1)); //渲染資料(首頁)

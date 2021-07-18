@@ -109,13 +109,8 @@
     }
   }
 
-  &__add {
+  &__add,&__delete {
     grid-column: 2 / span 1;
-
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    font-size: 1.9rem;
   }
 }
 
@@ -152,6 +147,10 @@
   }
 
   &--grey {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    font-size: 1.9rem;
     color: $color-primary;
     background-color: $color-grey-light-1;
   }
