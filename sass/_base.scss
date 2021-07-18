@@ -29,6 +29,10 @@ $bp-sm: 31.25em; //500px
 
 html {
   font-size: 62.5%;
+
+  @media only screen and (max-width:$bp-sm){
+    font-size: 50%;
+  }
 }
 
 body {
@@ -46,7 +50,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+ul,
+li {
   margin: 0;
   padding: 0;
 }

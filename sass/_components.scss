@@ -6,7 +6,7 @@
   font-size: 4rem;
 
   @media only screen and(max-width:$bp-sm) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
@@ -15,14 +15,18 @@
 .user-nav {
   font-family: $font-display;
 
-  @media only screen and (max-width: $bp-md) {
-    justify-self: end;
-  }
-
   &__list {
     list-style: none;
     display: flex;
     margin: 0;
+
+    @media only screen and (max-width: $bp-md) {
+      justify-content: flex-end;
+    }
+
+    @media only screen and (max-width: $bp-sm) {
+      justify-content: center;
+    }
   }
 
   &__item {
@@ -99,6 +103,10 @@
 
   &__seemore {
     grid-column: 1 / span 1;
+
+    @media only screen and (max-width: $bp-sm) {
+      padding: 0.5rem 1rem;
+    }
   }
 
   &__add {
@@ -193,14 +201,15 @@
       outline: none;
       background-color: $color-primary;
       color: white;
+      @media only screen and (max-width: $bp-sm) {
+        width: 90%;
+      }
     }
   }
 
   &__input:focus::placeholder {
     color: white;
   }
-
-
 
   &__btn {
     width: 3rem;
@@ -209,5 +218,60 @@
     border-radius: 50%;
     color: white;
     background-color: $color-primary-dark;
+  }
+}
+
+////////////////////////
+//PAGE NAVIGATION
+
+.page-nav {
+  padding: 0 0 5rem 0;
+  color: $color-primary;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &__item {
+  }
+  &__link {
+    display: inline-block;
+    padding: 1rem;
+    color: inherit;
+  }
+}
+
+////////////////////////
+//USER INFORMATION
+.user-info {
+  display: flex;
+  color: $color-grey-dark-2;
+  font-size: 1.2rem;
+
+  &__list {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    padding: 1rem;
+  }
+  &__photo {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &__img {
+    display: inline-block;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 3rem;
   }
 }

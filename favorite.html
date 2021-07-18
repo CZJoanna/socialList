@@ -53,61 +53,65 @@
 
       <div id="friendList" class="friends"></div>
 
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center" id="paginator"></ul>
+      <nav aria-label="Page navigation" class="page-nav">
+        <ul class="page-nav__list" id="paginator"></ul>
       </nav>
     </div>
 
     <!-- body area: Movie Modal -->
     <div
-      class="modal fade"
-      id="user-modal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- 跳頁:top area -->
-          <div class="modal-header">
-            <!-- 右上角關閉的按鈕 -->
-            <button
-              type="button"
-              class="close f-btn f-btn--grey"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
+    class="modal fade"
+    id="user-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- 跳頁:top area -->
+        <div class="modal-header">
+          <!-- 右上角關閉的按鈕 -->
+          <button
+            type="button"
+            class="close f-btn f-btn--grey"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <!-- 跳頁:body-area -->
+        <div class="modal-body" id="movie-modal-body">
+          <div class="user-info">
+            <ul class="user-info__list">
+              <li class="user-info__item" id="show-modal-name"></li>
+              <li class="user-info__item" id="show-modal-birth"></li>
+              <li class="user-info__item" id="show-modal-age"></li>
+              <li class="user-info__item" id="show-modal-email">e-mail</li>
+            </ul>
+            <figure class="user-info__photo" id="show-modal-pic">
+              <img src="" alt="" />
+            </figure>
           </div>
-          <!-- 跳頁:body-area -->
-          <div class="modal-body" id="movie-modal-body">
-            <div class="modal-container">
-              <ul class="show-modal-info">
-                <li id="show-modal-name">name</li>
-                <li id="show-modal-birth">birth</li>
-                <li id="show-modal-age">age</li>
-                <li id="show-modal-email">e-mail</li>
-              </ul>
-              <div class="modal-image" id="show-modal-pic">
-                <img src="" alt="" />
-              </div>
-            </div>
-          </div>
+        </div>
 
-          <!-- 跳頁:bottom-arera -->
-          <div class="modal-footer">
-            <!-- 關閉按鈕 -->
-            <button type="button" class="f-btn f-btn--orange" data-dismiss="modal">
-              Close
-            </button>
+        <!-- 跳頁:bottom-arera -->
+        <div class="modal-footer">
+          <!-- 關閉按鈕 -->
+          <button
+            type="button"
+            class="f-btn f-btn--orange"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
 
-            <!-- 愛心按鈕 -->
-          </div>
+          <!-- 愛心按鈕 -->
         </div>
       </div>
     </div>
+  </div>
 
     <script src="./js/favorite.js"></script>
     <!-- 引入CDN -->

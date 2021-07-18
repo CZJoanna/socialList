@@ -8,6 +8,9 @@
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 31.25em) {
+    html {
+      font-size: 50%; } }
 
 body {
   box-sizing: border-box;
@@ -23,7 +26,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+ul,
+li {
   margin: 0;
   padding: 0; }
 
@@ -33,17 +38,20 @@ h6 {
   font-size: 4rem; }
   @media only screen and (max-width: 31.25em) {
     .logo-text {
-      font-size: 3.5rem; } }
+      font-size: 3rem; } }
 
 .user-nav {
   font-family: "Uchen", sans-serif; }
-  @media only screen and (max-width: 50em) {
-    .user-nav {
-      justify-self: end; } }
   .user-nav__list {
     list-style: none;
     display: flex;
     margin: 0; }
+    @media only screen and (max-width: 50em) {
+      .user-nav__list {
+        justify-content: flex-end; } }
+    @media only screen and (max-width: 31.25em) {
+      .user-nav__list {
+        justify-content: center; } }
   .user-nav__item {
     position: relative; }
   .user-nav__link {
@@ -96,6 +104,9 @@ h6 {
     font-size: 2rem; }
   .friend__seemore {
     grid-column: 1 / span 1; }
+    @media only screen and (max-width: 31.25em) {
+      .friend__seemore {
+        padding: 0.5rem 1rem; } }
   .friend__add {
     grid-column: 2 / span 1;
     width: 3.5rem;
@@ -158,6 +169,9 @@ h6 {
       outline: none;
       background-color: #db8e71;
       color: white; }
+      @media only screen and (max-width: 31.25em) {
+        .search__input:focus {
+          width: 90%; } }
   .search__input:focus::placeholder {
     color: white; }
   .search__btn {
@@ -168,17 +182,53 @@ h6 {
     color: white;
     background-color: #ed784a; }
 
+.page-nav {
+  padding: 0 0 5rem 0;
+  color: #db8e71; }
+  .page-nav__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+  .page-nav__link {
+    display: inline-block;
+    padding: 1rem;
+    color: inherit; }
+
+.user-info {
+  display: flex;
+  color: #3c3c3c;
+  font-size: 1.2rem; }
+  .user-info__list {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    flex-direction: column; }
+  .user-info__item {
+    padding: 1rem; }
+  .user-info__photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; }
+  .user-info__img {
+    display: inline-block;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 3rem; }
+
 .f-container {
   display: grid;
   grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 12rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; }
 
 .header {
   grid-column: full-start / full-end;
+  padding: 3.5rem 4rem;
   display: grid;
   grid-template-columns: max-content 1fr max-content;
   align-items: center;
-  grid-column-gap: 2rem;
-  padding: 3.5rem 4rem; }
+  grid-column-gap: 2rem; }
   @media only screen and (max-width: 50em) {
     .header {
       grid-template-columns: max-content 1fr;
@@ -196,6 +246,7 @@ h6 {
   grid-column-gap: 1.5rem; }
   @media only screen and (max-width: 31.25em) {
     .friends {
+      grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
       padding: 2rem 0; } }
 
 .page-nav {
