@@ -3,6 +3,7 @@ const paginator = document.querySelector("#paginator");
 const inputContent = document.querySelector("#inputContent");
 const favCount = document.querySelector("#favCount");
 const getValBtn = document.querySelector("#getValBtn");
+const showKeyword = document.querySelector("#showKeyword");
 const users_per_page = 12;
 // fav list array
 let favUserArray = JSON.parse(localStorage.getItem("favoriteUsers"));
@@ -17,12 +18,17 @@ myPaginator(total_pages);
 // 畫面進入會先計算現在local storage有幾個Fav資料
 favCount.innerHTML = favUserArray.length;
 
-// 函式:
+// 函式:搜尋特定資料
 function getInputValue() {
+  let keyWord = '';
+  showKeyword.innerHTML = keyWord;
+  
   if (!inputContent.value.trim().length) {
     searchArray = [];
     renderUserList(getUserByPage(1));
+    return;
   }
+
   searchArray = favUserArray.filter((user) => {
     return (user.surname + "" + user.name)
       .toLowerCase()
@@ -30,9 +36,11 @@ function getInputValue() {
   });
 
   if (searchArray.length) {
+    keyWord = `<h3 class="keyword-box__heading">Keyword:${inputContent.value}</h3>`;
     const searchTotalPages = Math.ceil(searchArray.length / users_per_page);
     myPaginator(searchTotalPages);
     renderUserList(getUserByPage(1));
+    showKeyword.innerHTML = keyWord;
   } else {
     friendList.innerText =
       "Sorry,we don't find any people matching this search.";
