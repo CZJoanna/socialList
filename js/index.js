@@ -48,7 +48,7 @@ function renderUserList(array) {
     >
        See more
      </button>
-     <button class="f-btn f-btn--grey friend__add add-to-favorite ${myFriendList.some(fav=> fav.id == id) ? 'favorite': ''}" data-id="${id}">
+     <button class="f-btn f-btn--grey friend__add add-to-favorite ${myFriendList.some(fav=> fav.id === id) ? 'favorite': ''}" data-id="${id}">
      ${myFriendList.some(fav=> fav.id == id) ? '-': '+'}
      </button>
    </div>

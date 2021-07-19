@@ -49,7 +49,7 @@ function getUserByPage(page) {
 
 //函式:
 function myPaginator(totalPages) {
-  console.log(totalPages)
+  console.log(totalPages);
   let page = "";
   for (let i = 1; i <= totalPages; i++) {
     page += `<li class="page-nav__item">
@@ -89,23 +89,34 @@ function renderUserList(array) {
 
 // 刪除最愛
 function deleteFromFav(favId) {
-  if (!favUserArray) return;
   const selectedUser = favUserArray.find((item) => {
     return item.id == favId;
   });
-
+  const delSearchIndex = searchArray.indexOf(selectedUser);
   // 找出要刪除的物件在陣列的第幾個索引
-  let userIndex = favUserArray.indexOf(selectedUser);
-  if (userIndex == -1) return;
-  favUserArray.splice(userIndex, 1);
+  let delfavIndex = favUserArray.indexOf(selectedUser);
+  if (!favUserArray) return;
+  if (delfavIndex == -1) return;
+  favUserArray.splice(delfavIndex, 1);
   //存回 local storage
   localStorage.setItem("favoriteUsers", JSON.stringify(favUserArray));
-  
+  //重新渲染好友資料筆數
   favCount.innerHTML = favUserArray.length;
+  //重新計算資料總頁數
   after_del_pages = Math.ceil(favUserArray.length / users_per_page);
-  // 重新渲染頁面
-  renderUserList(getUserByPage(1));
-  myPaginator(after_del_pages);
+
+  //若在search裡刪除資料
+  searchArray.splice(delSearchIndex, 1);
+  search_pages = Math.ceil(searchArray.length / users_per_page);
+
+  if (searchArray.length) {
+    renderUserList(getUserByPage(1));
+    myPaginator(search_pages);
+  } else {
+    // 重新渲染頁面
+    renderUserList(getUserByPage(1));
+    myPaginator(after_del_pages);
+  }
 }
 
 /*****
